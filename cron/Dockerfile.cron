@@ -1,0 +1,23 @@
+FROM alpine:3.19.0
+
+RUN apk update
+
+RUN apk add tzdata \
+    && cp /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
+    && apk del tzdata
+
+RUN apk add curl
+
+RUN rm -rf /var/cache/apk/*
+
+WORKDIR /app
+
+COPY ./entrypoint.sh /app/
+COPY ./update.sh /app/
+
+RUN chmod +x /app/update.sh
+
+# CMD echo '* * * * * /app/update.sh' > /var/spool/cron/crontabs/root && crond -l 2 -f
+# CMD echo '* * * * * echo foobar' > /var/spool/cron/crontabs/root && crond -l 2 -f
+
+ENTRYPOINT ["/app/entrypoint.sh"]
