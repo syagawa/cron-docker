@@ -21,7 +21,7 @@ When you rewrite `cron/work/list`, it will be evaluated after 1 minute and compa
 
 ## example
 
-By rewriting `/cron/work/list` as shown below, /cron/work/script.sh was executed every minute, but now /cron/work/other1.sh is executed every minute. Additionally, /cron/work/other2.sh is executed every day at 1:01.
+By rewriting `/cron/work/list` as shown below, cron/work/script.sh was executed every minute, but now cron/work/other1.sh is executed every minute. Additionally, cron/work/other2.sh is executed every day at 1:01.
 
 Note that other1.sh and other2.sh must be added to cron/work on the host machine.
 
