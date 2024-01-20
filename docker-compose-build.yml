@@ -1,0 +1,8 @@
+version: "3"
+services:
+  cron:
+    build:
+      context: ./cron
+      dockerfile: ./Dockerfile.cron
+    container_name: cron-alipine
+    image: cron-container

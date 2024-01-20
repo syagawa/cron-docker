@@ -1,0 +1,7 @@
+version: "3"
+services:
+  cron:
+    image: cron-container
+    container_name: cron-alipine
+    volumes:
+      - ./cron/work:/app/work
